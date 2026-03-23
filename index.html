@@ -5,57 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Jelly Sandbox</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟣</text></svg>">
 </head>
 <body>
     <div id="ui">
-        <h1>🫧 Pixel Jelly Sandbox</h1>
+        <h1>🫧 Jelly Sandbox</h1>
         <div class="controls">
             <div class="control-group">
                 <label>Tool:</label>
-                <button class="tool-btn active" data-tool="spawn">Spawn</button>
-                <button class="tool-btn" data-tool="drag">Drag</button>
-                <button class="tool-btn" data-tool="poke">Poke</button>
-                <button class="tool-btn" data-tool="delete">Delete</button>
+                <div class="btn-row">
+                    <button class="tool-btn active" data-tool="spawn">Spawn</button>
+                    <button class="tool-btn" data-tool="drag">Drag</button>
+                    <button class="tool-btn" data-tool="poke">Poke</button>
+                    <button class="tool-btn" data-tool="delete">Delete</button>
+                </div>
             </div>
             <div class="control-group">
                 <label>Shape:</label>
-                <button class="shape-btn active" data-shape="circle">Circle</button>
-                <button class="shape-btn" data-shape="square">Square</button>
-                <button class="shape-btn" data-shape="triangle">Triangle</button>
-                <button class="shape-btn" data-shape="blob">Blob</button>
+                <div class="btn-row">
+                    <button class="shape-btn active" data-shape="circle">●</button>
+                    <button class="shape-btn" data-shape="square">■</button>
+                    <button class="shape-btn" data-shape="triangle">▲</button>
+                </div>
             </div>
             <div class="control-group">
-                <label>Size: <span id="sizeVal">40</span></label>
-                <input type="range" id="sizeSlider" min="15" max="80" value="40">
+                <label>Size: <span id="sizeVal">30</span></label>
+                <input type="range" id="sizeSlider" min="12" max="60" value="30">
             </div>
             <div class="control-group">
-                <label>Softness: <span id="softnessVal">50</span></label>
-                <input type="range" id="softnessSlider" min="5" max="95" value="50">
+                <label>Softness: <span id="softnessVal">60</span>%</label>
+                <input type="range" id="softnessSlider" min="10" max="95" value="60">
+            </div>
+            <div class="control-group">
+                <label>Pressure: <span id="pressureVal">50</span>%</label>
+                <input type="range" id="pressureSlider" min="5" max="100" value="50">
+            </div>
+            <div class="control-group">
+                <label>Gravity: <span id="gravityVal">50</span>%</label>
+                <input type="range" id="gravitySlider" min="0" max="100" value="50">
             </div>
             <div class="control-group">
                 <label>Color:</label>
                 <div class="color-swatches">
                     <button class="color-btn active" data-color="#ff4466" style="background:#ff4466"></button>
                     <button class="color-btn" data-color="#44aaff" style="background:#44aaff"></button>
-                    <button class="color-btn" data-color="#44ff88" style="background:#44ff88"></button>
+                    <button class="color-btn" data-color="#55dd88" style="background:#55dd88"></button>
                     <button class="color-btn" data-color="#ffaa22" style="background:#ffaa22"></button>
-                    <button class="color-btn" data-color="#cc44ff" style="background:#cc44ff"></button>
+                    <button class="color-btn" data-color="#cc55ff" style="background:#cc55ff"></button>
                     <button class="color-btn" data-color="#ffee44" style="background:#ffee44"></button>
-                    <button class="color-btn" data-color="#ff88cc" style="background:#ff88cc"></button>
-                    <button class="color-btn" data-color="#ffffff" style="background:#ffffff"></button>
+                    <button class="color-btn" data-color="#ff88bb" style="background:#ff88bb"></button>
+                    <button class="color-btn" data-color="#88ffee" style="background:#88ffee"></button>
                 </div>
             </div>
             <div class="control-group">
-                <label>Gravity: <span id="gravityVal">50</span></label>
-                <input type="range" id="gravitySlider" min="0" max="100" value="50">
-            </div>
-            <div class="control-group">
-                <button id="clearBtn" class="danger-btn">Clear All</button>
-                <button id="shakeBtn" class="action-btn">Shake!</button>
+                <div class="btn-row">
+                    <button id="shakeBtn" class="action-btn">🌊 Shake</button>
+                    <button id="clearBtn" class="danger-btn">✕ Clear</button>
+                </div>
             </div>
         </div>
-        <p class="hint">Click canvas to spawn jellies. Drag to interact!</p>
+        <p class="hint">Click to spawn slimy jellies!<br>They squish, bounce &amp; pile up.</p>
     </div>
     <canvas id="canvas"></canvas>
     <script src="script.js"></script>
