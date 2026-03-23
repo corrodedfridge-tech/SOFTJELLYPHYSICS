@@ -7,12 +7,13 @@
 }
 
 body {
-    background: #1a1a2e;
+    background: #0e0e1a;
     overflow: hidden;
     font-family: 'Press Start 2P', monospace;
     display: flex;
     user-select: none;
     -webkit-user-select: none;
+    height: 100vh;
 }
 
 #canvas {
@@ -24,70 +25,72 @@ body {
 }
 
 #ui {
-    width: 280px;
-    min-width: 280px;
-    background: #16213e;
-    border-right: 4px solid #0f3460;
-    padding: 16px;
+    width: 260px;
+    min-width: 260px;
+    background: #13132a;
+    border-right: 4px solid #252548;
+    padding: 14px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    z-index: 10;
+    gap: 10px;
     height: 100vh;
 }
 
 #ui h1 {
-    color: #e94560;
-    font-size: 14px;
+    color: #ff5577;
+    font-size: 13px;
     text-align: center;
-    text-shadow: 2px 2px #0f3460;
+    text-shadow: 2px 2px #000;
     padding-bottom: 8px;
-    border-bottom: 3px dashed #0f3460;
+    border-bottom: 2px dashed #252548;
 }
 
 .controls {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .control-group {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    align-items: center;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .control-group label {
-    color: #a7c5eb;
-    font-size: 8px;
-    width: 100%;
-    margin-bottom: 2px;
+    color: #8888bb;
+    font-size: 7px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
 }
 
 .tool-btn, .shape-btn {
     font-family: 'Press Start 2P', monospace;
     font-size: 7px;
     padding: 6px 8px;
-    border: 2px solid #0f3460;
-    background: #1a1a2e;
-    color: #a7c5eb;
+    border: 2px solid #252548;
+    background: #0e0e1a;
+    color: #8888bb;
     cursor: pointer;
     transition: all 0.1s;
-    image-rendering: pixelated;
+    flex: 1;
+    text-align: center;
 }
 
 .tool-btn:hover, .shape-btn:hover {
-    background: #0f3460;
-    color: #fff;
+    background: #252548;
+    color: #ccccff;
 }
 
 .tool-btn.active, .shape-btn.active {
-    background: #e94560;
+    background: #ff5577;
     color: #fff;
-    border-color: #ff6b81;
-    box-shadow: 0 0 8px rgba(233, 69, 96, 0.5);
+    border-color: #ff8899;
 }
 
 .color-swatches {
@@ -97,109 +100,85 @@ body {
 }
 
 .color-btn {
-    width: 24px;
-    height: 24px;
-    border: 2px solid #0f3460;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #252548;
     cursor: pointer;
-    transition: transform 0.1s;
     padding: 0;
 }
 
-.color-btn:hover {
-    transform: scale(1.2);
-}
-
+.color-btn:hover { transform: scale(1.15); }
 .color-btn.active {
     border-color: #fff;
-    box-shadow: 0 0 8px rgba(255,255,255,0.5);
-    transform: scale(1.15);
+    box-shadow: 0 0 6px rgba(255,255,255,0.4);
+    transform: scale(1.1);
 }
 
 input[type="range"] {
     width: 100%;
-    height: 8px;
+    height: 6px;
     -webkit-appearance: none;
     appearance: none;
-    background: #0f3460;
+    background: #252548;
     outline: none;
-    border: 2px solid #1a1a2e;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #e94560;
+    width: 14px; height: 14px;
+    background: #ff5577;
     cursor: pointer;
-    border: 2px solid #ff6b81;
+    border: 2px solid #ff8899;
 }
 
 input[type="range"]::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #e94560;
+    width: 14px; height: 14px;
+    background: #ff5577;
     cursor: pointer;
-    border: 2px solid #ff6b81;
+    border: 2px solid #ff8899;
     border-radius: 0;
 }
 
 .danger-btn, .action-btn {
     font-family: 'Press Start 2P', monospace;
-    font-size: 8px;
-    padding: 8px 12px;
+    font-size: 7px;
+    padding: 7px 10px;
     border: 2px solid;
     cursor: pointer;
     flex: 1;
-    transition: all 0.1s;
+    text-align: center;
 }
 
 .danger-btn {
-    background: #1a1a2e;
-    color: #e94560;
-    border-color: #e94560;
+    background: #0e0e1a;
+    color: #ff5577;
+    border-color: #ff5577;
 }
-
-.danger-btn:hover {
-    background: #e94560;
-    color: #fff;
-}
+.danger-btn:hover { background: #ff5577; color: #fff; }
 
 .action-btn {
-    background: #1a1a2e;
+    background: #0e0e1a;
     color: #44aaff;
     border-color: #44aaff;
 }
-
-.action-btn:hover {
-    background: #44aaff;
-    color: #fff;
-}
+.action-btn:hover { background: #44aaff; color: #fff; }
 
 .hint {
-    color: #536878;
+    color: #444466;
     font-size: 6px;
     text-align: center;
-    line-height: 1.8;
+    line-height: 2;
     margin-top: auto;
     padding-top: 8px;
-    border-top: 2px dashed #0f3460;
+    border-top: 2px dashed #252548;
 }
 
 @media (max-width: 700px) {
-    body {
-        flex-direction: column;
-    }
+    body { flex-direction: column; }
     #ui {
-        width: 100%;
-        min-width: unset;
-        height: auto;
-        max-height: 45vh;
+        width: 100%; min-width: unset;
+        height: auto; max-height: 40vh;
         border-right: none;
-        border-bottom: 4px solid #0f3460;
-    }
-    #canvas {
-        width: 100%;
-        height: 55vh;
+        border-bottom: 4px solid #252548;
     }
 }
